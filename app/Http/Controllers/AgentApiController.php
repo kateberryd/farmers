@@ -32,23 +32,20 @@ class AgentApiController extends Controller
           $agent->address = $request->input('address');
           $agent->password = bcrypt('password');
     
-        // if( $agent->save()){
-        //     return response()->json({
-        //         'status'=>'200',
-        //         'message'=> 'success',
+        if($agent->save()){
+            return response()->json([
+                'status'=>'200',
+                'message'=> 'success',
 
-        //     }));
-        // }
-        // else{
-        //     return response()->json({
-        //         'status'=>'404',
-        //         'message'=> 'failed',
+            ]);
+        }
+        else{
+            return response()->json([
+                'status'=>'404',
+                'message'=> 'failed',
 
-        //     });
-        // };
-       
-         return redirect()->back()->with('success', 'Field agent created successful');
-          
+            ]);
+        }          
        }
     }
     

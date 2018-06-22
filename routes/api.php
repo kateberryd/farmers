@@ -19,3 +19,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::get("/st",function(){
     return \Hash::make("secret");
 });
+
+Route::post('/agent/register', 'AgentApiController@createAgent');
